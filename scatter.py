@@ -43,7 +43,7 @@ coordinates = [
     (11, 3.6, -5),
     (12, 6.3, -6.3),
     (13, 8.1, -3.85),
-    (14, 5.1, -5.1)
+    (14, 5.1, -5.1),
     (15, 6.9, -4.6)
 
 ]
@@ -69,23 +69,22 @@ fig = px.scatter(x=normalized_x_coords,
 
 iterator = 0
 for i, row in df.iterrows():
+    rad = 40
     image = Image.open(imageFiles[iterator], mode="r")
-    image = image.convert("RGBA")
-
-    # Create a circular mask image with the same size as the rectangular image
-    mask = Image.new('L', image.size, 0)
-
-    # Convert the circular mask image to the "RGBA" pixel format
-    mask = mask.convert("RGBA")
-
-    draw = ImageDraw.Draw(mask)
-    draw.ellipse((0, 0) + image.size, fill=255)
-
-    output = Image.blend(image, mask, 255)
+    circle = Image.new('L', (rad * 2, rad * 2), 0)
+    draw = ImageDraw.Draw(circle)
+    draw.ellipse((0, 0, rad * 2 - 1, rad * 2 - 1), fill=255)
+    alpha = Image.new('L', image.size, 255)
+    w, h = image.size
+    alpha.paste(circle.crop((0, 0, rad, rad)), (0, 0))
+    alpha.paste(circle.crop((0, rad, rad, rad * 2)), (0, h - rad))
+    alpha.paste(circle.crop((rad, 0, rad * 2, rad)), (w - rad, 0))
+    alpha.paste(circle.crop((rad, rad, rad * 2, rad * 2)), (w - rad, h - rad))
+    image.putalpha(alpha)
 
     fig.add_layout_image(
         dict(
-            source=output,
+            source=image,
             xref="x",
             yref="y",
             xanchor="center",
