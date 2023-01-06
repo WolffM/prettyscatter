@@ -7,8 +7,10 @@ from imageProcessing import *
 from statics import *
 
 imageFiles = []
+newImage = []
 for i in indexLookup:
     imageFiles.append(f"./assets/{i}.png")
+    newImage.append(f"{i}2.png")
 
 indexes = [index for index, x, y in coordinates]
 x_coords = [x for index, x, y in coordinates]
@@ -31,7 +33,7 @@ fig = px.scatter(x=normalized_x_coords,
 iterator = 0
 for i, row in df.iterrows():
     rad = 40
-    image = getRoundedImage(imageFiles[iterator])
+    image = getRoundedImage(imageFiles[iterator], newImage[iterator])
 
 
     fig.add_layout_image(
@@ -57,7 +59,7 @@ for i, row in df.iterrows():
 fig.update_layout(xaxis=dict(range=[-.04, 1.04]),
                   yaxis=dict(range=[-.04, 1.04]))
 
-fig.update_layout(width=800, height=800)
+fig.update_layout(width=1200, height=1200)
 
 fig = addBackgroundGradient2(fig)
 fig.update_layout(
