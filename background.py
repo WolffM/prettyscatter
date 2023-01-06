@@ -1,6 +1,10 @@
 oneSegment = 0.36
 twoSegment = 0.72
 
+lineWidth=10
+interval=100
+opaci=.5
+
 colorscale = [[0, '#87CEEB'], [1, '#00008B']]
 
 def addBackgroundGradient(fig):
@@ -70,9 +74,6 @@ def addBackgroundGradient(fig):
     return fig
 
 def addBackgroundGradient2(fig):
-    lineWidth=12
-    interval=65
-    opaci=.5
     fig.update_layout(plot_bgcolor='whitesmoke')
 
     #GREEN
@@ -90,6 +91,8 @@ def addBackgroundGradient2(fig):
             y1=i*((oneSegment)/interval)+twoSegment,
             line=dict(color='rgba({}, {}, {}, {})'.format((76),(255),(109),(opac)),
                     width=lineWidth,))
+        if opac == (1/interval):
+            fig = addBlackline(fig, -.04, 1.04, i*((oneSegment)/interval)+twoSegment, i*((oneSegment)/interval)+twoSegment)
     #RED
     for i in range(interval):
         opac = 1-(i/interval)
@@ -105,6 +108,8 @@ def addBackgroundGradient2(fig):
             y1=i*((oneSegment)/interval)-0.04,
             line=dict(color='rgba({}, {}, {}, {})'.format((222),(84),(108),(opac)),
                     width=lineWidth,))
+        if opac == (1-(((interval-1)/interval))):
+            fig = addBlackline(fig, -.04, 1.04, i*((oneSegment)/interval)-0.04, i*((oneSegment)/interval)-0.04)
     #BLUE
     for i in range(interval):
         opac = 1-(i/interval)
@@ -120,6 +125,8 @@ def addBackgroundGradient2(fig):
             y1=1.04,
             line=dict(color='rgba({}, {}, {}, {})'.format((56),(94),(255),(opac)),
                     width=lineWidth,))
+        if opac == (1-(((interval-1)/interval))):
+            fig = addBlackline(fig, i*(oneSegment/interval)-0.04, i*(oneSegment/interval)-0.04, -.04, 1.04)
     #ORANGE
     for i in range(interval):
         opac = (i/interval)
@@ -135,4 +142,21 @@ def addBackgroundGradient2(fig):
             y1=1.04,
             line=dict(color='rgba({}, {}, {}, {})'.format((245),(180),(105),(opac)),
                     width=lineWidth,))
+        if opac == (1/interval):
+            fig = addBlackline(fig, i*((oneSegment)/interval)+twoSegment, i*((oneSegment)/interval)+twoSegment, -.04, 1.04)
+    return fig
+
+def addBlackline(fig, x0, x1, y0, y1):
+    fig.add_shape(
+            type='line',
+            xref="x",
+            yref="y",
+            opacity=.2,
+            layer="below",
+            x0=x0,
+            x1=x1,
+            y0=y0,
+            y1=y1,
+            line=dict(color='rgba({}, {}, {}, {})'.format((0),(0),(0),(.7)),
+                    width=2,))
     return fig
