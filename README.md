@@ -65,7 +65,3 @@ The project includes an example (`newplot.png`) demonstrating the output with cu
 ## Contributing
 
 Contributions are welcome! Feel free to open issues, submit pull requests, or suggest improvements.
-
-## License
-
-[Choose a license] (e.g., MIT License)
