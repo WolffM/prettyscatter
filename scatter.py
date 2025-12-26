@@ -25,10 +25,10 @@ max_y = max(y_coords)
 normalized_x_coords = [((x - min_x) / (max_x - min_x)) for x in x_coords]
 normalized_y_coords = [((y - min_y) / (max_y - min_y)) for y in y_coords]
 
-df = pd.DataFrame({'x': normalized_x_coords, 'y': normalized_y_coords})
+df = pd.DataFrame({'x': x_coords, 'y': y_coords})
 
-fig = px.scatter(x=normalized_x_coords,
-                 y=normalized_y_coords)
+fig = px.scatter(x=x_coords,
+                 y=y_coords)
 
 iterator = 0
 for i, row in df.iterrows():
@@ -56,12 +56,12 @@ for i, row in df.iterrows():
     iterator += 1
 
 # Set the x and y axis ranges to [0, 1]
-fig.update_layout(xaxis=dict(range=[-.04, 1.04]),
-                  yaxis=dict(range=[-.04, 1.04]))
+#fig.update_layout(xaxis=dict(range=[-.04, 1.04]),
+#                  yaxis=dict(range=[-.04, 1.04]))
 
 fig.update_layout(width=1200, height=1200)
 
-fig = addBackgroundGradient2(fig)
+#fig = addBackgroundGradient2(fig)
 fig.update_layout(
     xaxis=dict(
         showgrid=False, 
