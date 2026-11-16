@@ -6,8 +6,8 @@ What the plotting and image tools do. How the repo is laid out is in
 ## Image-marker scatter plot
 
 **What it does.** `scatter.py` reads a fixed list of entries from
-`statics.py` — each one a name, an x/y coordinate, and a matching image
-file in `assets/` — and builds a Plotly scatter chart where every point's
+`statics.py`. Each one is a name, an x/y coordinate, and a matching image
+file in `assets/`. It builds a Plotly scatter chart where every point's
 usual marker dot is replaced by that entry's image instead. The chart
 opens at a fixed 1200×1200 size with no axis lines, grid or tick labels, so
 only the images and their layout are visible.
@@ -18,8 +18,8 @@ the finished chart in your default browser.
 
 **What it does not do.** The README still describes "Data Normalization"
 — scaling coordinates into `[0, 1]` before plotting — as a current
-feature, but the code that did that (and the matching axis-range fix) is
-commented out as of the repo's latest commit; the chart now plots each
+feature. The code that did that (and the matching axis-range fix) is
+commented out as of the repo's latest commit, so the chart now plots each
 entry's raw coordinates unscaled (`adec582`; see
 [history](history.md#a-step-backward)).
 
@@ -43,11 +43,11 @@ stands.
 ## Background gradient helpers
 
 **What it does.** `background.py` defines two alternative ways to tint the
-chart behind the points: `addBackgroundGradient` paints the plot's four
-quadrant-like rectangles in flat, semi-transparent colors, while
-`addBackgroundGradient2` draws many thin, increasingly transparent lines
-along each edge to fake a soft gradient band, with a solid line marking
-where each band starts.
+chart behind the points. `addBackgroundGradient` paints the plot's four
+quadrant-like rectangles in flat, semi-transparent colors. `addBackgroundGradient2`
+instead draws many thin, increasingly transparent lines along each edge to
+fake a soft gradient band, with a solid line marking where each band
+starts.
 
 **How to use it.** Neither is called by `scatter.py` as of the latest
 commit; using one means uncommenting the matching call

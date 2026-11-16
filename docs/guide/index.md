@@ -30,6 +30,15 @@ of names, coordinates and image files lives directly in `statics.py`, and
 by its matching image, rounded at the corners. Running it opens the chart
 in your browser.
 
+```sh
+python scatter.py
+```
+
+That reads the entries in `statics.py`, builds the chart, and calls
+`fig.show()`: a 1200×1200 Plotly figure opens in your default browser,
+each point's usual dot replaced by that entry's rounded image, with no
+axis lines or labels.
+
 A second, unrelated script, `bot.py`, logs a Discord bot into a single
 hard-coded server and prints its member list; the README itself notes this
 isn't really part of the scatter-plot tool.

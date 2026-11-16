@@ -20,6 +20,6 @@ Each fact names the commit it comes from.
   Discord bot script were all written across five commits on 2023-01-05,
   from 10:18 a.m. to 11:18 p.m. (`e76916a` → `580f3f8`). Eight more
   commits follow the "all" commit (`f8fc773`) across the repo's whole
-  history, but three of those are still part of that same first day; only
+  history. Three of those are still part of that same first day; only
   five come after the day itself ended, separated by gaps of 308, 193 and
   585 days (fact sheet, 2026-11-16).
