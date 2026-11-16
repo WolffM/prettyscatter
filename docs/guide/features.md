@@ -20,7 +20,7 @@ the finished chart in your default browser.
 — scaling coordinates into `[0, 1]` before plotting — as a current
 feature, but the code that did that (and the matching axis-range fix) is
 commented out as of the repo's latest commit; the chart now plots each
-entry's raw coordinates unscaled (`905ddbb`; see
+entry's raw coordinates unscaled (`adec582`; see
 [history](history.md#a-step-backward)).
 
 ## Rounded image processing
@@ -64,4 +64,4 @@ command line.
 The call that applied a background gradient and the coordinate-
 normalization step were both commented out in the same commit, the
 repo's most recent, without a matching README update
-(`905ddbb`).
+(`adec582`).

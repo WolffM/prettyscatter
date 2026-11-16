@@ -50,4 +50,4 @@ chart in your browser, not a deployed service.
 ## Trivia
 
 The repo has no `.gitignore`, which is how its compiled `__pycache__`
-bytecode ended up committed alongside the source (`82aa381`).
+bytecode ended up committed alongside the source (`f8fc773`).
