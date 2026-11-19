@@ -1,5 +1,7 @@
 # prettyscatter
 
+**Guide:** [overview](docs/guide/index.md) · [features](docs/guide/features.md) · [contributing](docs/guide/contributing.md) · [history](docs/guide/history.md) · [trivia](docs/guide/trivia.md)
+
 This Python project enhances scatter plot visualizations by normalizing data points and incorporating custom images as markers using Plotly. It's designed to create visually appealing and informative scatter plots with personalized touches.
 
 ![alt text](https://github.com/WolffM/prettyscatter/blob/main/assets/newplot.png)
